@@ -1,7 +1,5 @@
 %global debug_package %{nil}
-%global swiftbuild swift-source
 %global reltag 5.3.2-RELEASE
-%global cmake_version 3.19.3
 
 
 Name:           libdispatch
@@ -12,20 +10,11 @@ License:        ASL 2.0
 URL:            https://github.com/apple/swift-corelibs-libdispatch
 
 Source0:        https://github.com/apple/swift-corelibs-libdispatch/archive/swift-%{reltag}.tar.gz#/corelibs-libdispatch.tar.gz
-%if 0%{?el8}
-Source1:        https://github.com/Kitware/CMake/releases/download/v%{cmake_version}/cmake-%{cmake_version}.tar.gz
-%endif
 
 BuildRequires:  clang
 BuildRequires:  libbsd-devel
 BuildRequires:  ninja-build
 BuildRequires:  cmake
-%if 0%{?el8}
-BuildRequires:  make
-BuildRequires:  openssl-devel
-%endif
-
-Provides:       %{name} = %{version}-%{release}
 
 ExclusiveArch:  x86_64 aarch64 
 
@@ -52,25 +41,10 @@ informed thread scheduling.
 
 
 %prep
-%if 0%{?el8}
-# Now we build our own CMake because the one in EPEL8 is too old and
-# we can safely build it for all platforms (though will add some time
-# to the whole build process)
-%setup -q -c -n cmake -a 1
-mkdir cmake-build
-cd cmake-build
-../cmake-%{cmake_version}/bootstrap && make
-%endif
-
 %setup -q -n swift-corelibs-libdispatch-swift-%{reltag}
 
 
 %build
-export VERBOSE=1
-%if 0%{?el8}
-# And for CMake, which we built first if we're on CentOS 8
-export PATH=$PWD/../cmake/cmake-build/bin:$PATH
-%endif
 cmake -G Ninja -DCMAKE_INSTALL_PREFIX=%{buildroot}%{_usr} -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ .
 ninja
 
@@ -87,10 +61,6 @@ ninja install
 %{_libdir}/libBlocksRuntime.so
 %{_libdir}/libdispatch.so
 %{_mandir}/man3/*
-
-
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
 
 
 %changelog
