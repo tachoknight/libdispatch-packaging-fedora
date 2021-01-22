@@ -7,7 +7,7 @@ START_TS=`date`
 rm -rf /home/rolson/rpmbuild
 rm $MYDIR/build-output.txt
 mkdir -p /home/rolson/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-cp $PWD/*.conf /home/rolson/rpmbuild/SOURCES
+cp $PWD/*.patch /home/rolson/rpmbuild/SOURCES
 cp $PWD/libdispatch.spec /home/rolson/rpmbuild/SPECS
 
 pushd /home/rolson/rpmbuild/SPECS

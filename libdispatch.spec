@@ -1,4 +1,4 @@
-%global debug_package %{nil}
+%global toolchain clang
 %global reltag 5.3.2-RELEASE
 
 
@@ -10,6 +10,8 @@ License:        ASL 2.0
 URL:            https://github.com/apple/swift-corelibs-libdispatch
 
 Source0:        https://github.com/apple/swift-corelibs-libdispatch/archive/swift-%{reltag}.tar.gz#/corelibs-libdispatch.tar.gz
+
+Patch0:         asprintf.patch
 
 BuildRequires:  clang
 BuildRequires:  libbsd-devel
@@ -43,14 +45,15 @@ informed thread scheduling.
 %prep
 %setup -q -n swift-corelibs-libdispatch-swift-%{reltag}
 
+%patch0 -p2
 
 %build
-cmake -G Ninja -DCMAKE_INSTALL_PREFIX=%{buildroot}%{_usr} -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ .
-ninja
+%cmake -G Ninja .
+%cmake_build
 
 
 %install
-ninja install
+%cmake_install
 
 
 %files
