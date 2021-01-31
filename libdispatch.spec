@@ -1,9 +1,9 @@
 %global toolchain clang
-%global reltag 5.3.2-RELEASE
+%global reltag 5.3.3-RELEASE
 
 
 Name:           libdispatch
-Version:        5.3.2
+Version:        5.3.3
 Release:        1%{?dist}
 Summary:        Apple's Grand Central Dispatch library
 License:        ASL 2.0 
@@ -67,5 +67,7 @@ informed thread scheduling.
 
 
 %changelog
+* Sun Jan 31 2021 Ron Olson <tachoknight@gmail.com> 5.3.3-1
+- Updated to 5.3.3-RELEASE
 * Wed Jan 13 2021 Ron Olson <tachoknight@gmail.com> 5.3.2-1
 - First version
