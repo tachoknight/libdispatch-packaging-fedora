@@ -42,10 +42,20 @@ Linux kernel module could be developed to support more
 informed thread scheduling.
 
 
+%package devel
+Summary:    Development files for libdispatch
+Requires:   %{name} = %{version}-%{release}
+
+
+%description devel
+Development files for libdispatch
+
+
 %prep
 %setup -q -n swift-corelibs-libdispatch-swift-%{reltag}
 
 %patch0 -p2
+
 
 %build
 %cmake -G Ninja .
@@ -58,12 +68,15 @@ informed thread scheduling.
 
 %files
 %license LICENSE
-%{_includedir}/Block.h
-%{_includedir}/dispatch/*
-%{_includedir}/os/*
 %{_libdir}/libBlocksRuntime.so
 %{_libdir}/libdispatch.so
 %{_mandir}/man3/*
+
+
+%files devel
+%{_includedir}/Block.h
+%{_includedir}/dispatch/*
+%{_includedir}/os/*
 
 
 %changelog
