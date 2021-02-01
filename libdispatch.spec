@@ -44,7 +44,7 @@ informed thread scheduling.
 
 %package devel
 Summary:    Development files for libdispatch
-Requires:   %{name} = %{version}-%{release}
+Requires:    %{name}%{?_isa} = %{version}-%{release}
 
 
 %description devel
