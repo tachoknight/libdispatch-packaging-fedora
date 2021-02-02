@@ -17,9 +17,14 @@ BuildRequires:  clang
 BuildRequires:  libbsd-devel
 BuildRequires:  ninja-build
 BuildRequires:  cmake
+BuildRequires:  chrpath
 
 ExclusiveArch:  x86_64 aarch64 
 
+Provides:       libblocksruntime = %{version}-%{release}
+Obsoletes:      libblocksruntime < 7.0.0-5
+
+Epoch:          1
 
 %description
 Grand Central Dispatch (GCD or libdispatch) provides 
@@ -44,7 +49,7 @@ informed thread scheduling.
 
 %package devel
 Summary:    Development files for libdispatch
-Requires:    %{name}%{?_isa} = %{version}-%{release}
+Requires:   %{name}%{?_isa} = %{version}-%{release}
 
 
 %description devel
@@ -64,6 +69,7 @@ Development files for libdispatch
 
 %install
 %cmake_install
+chrpath --delete %{buildroot}%{_libdir}/libdispatch.so
 
 
 %files
