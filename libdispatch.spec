@@ -86,7 +86,5 @@ chrpath --delete %{buildroot}%{_libdir}/libdispatch.so
 
 
 %changelog
-* Sun Jan 31 2021 Ron Olson <tachoknight@gmail.com> 5.3.3-1
-- Updated to 5.3.3-RELEASE
-* Wed Jan 13 2021 Ron Olson <tachoknight@gmail.com> 5.3.2-1
-- First version
+* Wed Feb 03 2021 Ron Olson <tachoknight@gmail.com> 5.3.3-1
+- Initial version based on version 5.3.3-RELEASE
