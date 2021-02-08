@@ -49,7 +49,7 @@ informed thread scheduling.
 
 %package devel
 Summary:    Development files for libdispatch
-Requires:   %{name}%{?_isa} = %{version}-%{release}
+Requires:   %{name}%{?_isa} =  %{epoch}:%{version}-%{release}
 
 
 %description devel
