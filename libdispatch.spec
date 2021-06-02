@@ -1,16 +1,14 @@
 %global toolchain clang
-%global reltag 5.4-RELEASE
-%global cmake_version 3.19.3
+%global reltag 5.4.1-RELEASE
 
 Name:           libdispatch
-Version:        5.4
+Version:        5.4.1
 Release:        1%{?dist}
 Summary:        Apple's Grand Central Dispatch library
 License:        ASL 2.0 
 URL:            https://github.com/apple/swift-corelibs-libdispatch
 
 Source0:        https://github.com/apple/swift-corelibs-libdispatch/archive/swift-%{reltag}.tar.gz#/corelibs-libdispatch.tar.gz
-Source1:        https://github.com/Kitware/CMake/releases/download/v%{cmake_version}/cmake-%{cmake_version}.tar.gz
 
 BuildRequires:  clang
 BuildRequires:  libbsd-devel
@@ -56,24 +54,12 @@ Development files for libdispatch
 
 
 %prep
-%if 0%{?el8}
-# Now we build our own CMake because the one in EPEL8 is too old and
-# we can safely build it for all platforms (though will add some time
-# to the whole build process)
-%setup -q -c -n cmake -a 1
-mkdir cmake-build
-cd cmake-build
-../cmake-%{cmake_version}/bootstrap && make
-%endif
 %setup -q -n swift-corelibs-libdispatch-swift-%{reltag}
 
 
 %build
-%if 0%{?el8}
-# And for CMake, which we built first
-export PATH=$PWD/../cmake/cmake-build/bin:$PATH
-%endif
-
+export CXX=clang++
+export CC=clang
 %cmake -G Ninja .
 %cmake_build
 
@@ -97,6 +83,8 @@ chrpath --delete %{buildroot}%{_libdir}/libdispatch.so
 
 
 %changelog
+* Tue Jun 01 2021 Ron Olson <tachoknight@gmail.com> 5.4.1-1
+- Updated to 5.4.1-RELEASE
 * Sat May 01 2021 Ron Olson <tachoknight@gmail.com> 5.4-1
 - Updated to 5.4-RELEASE also added explicit CMake step
   for EPEL8
