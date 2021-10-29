@@ -1,5 +1,5 @@
 %global toolchain clang
-%global reltag 5.4.1-RELEASE
+%global reltag 5.5.1-RELEASE
 
 Name:           libdispatch
 Version:        5.4.1
@@ -83,6 +83,8 @@ chrpath --delete %{buildroot}%{_libdir}/libdispatch.so
 
 
 %changelog
+* Fri Oct 29 2021 Ron Olson <tachoknight@gmail.com> 5.5.1-1
+- Updated to 5.5.1-RELEASE
 * Tue Jun 01 2021 Ron Olson <tachoknight@gmail.com> 5.4.1-1
 - Updated to 5.4.1-RELEASE
 * Sat May 01 2021 Ron Olson <tachoknight@gmail.com> 5.4-1
