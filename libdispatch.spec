@@ -1,8 +1,8 @@
 %global toolchain clang
-%global reltag 5.5.1-RELEASE
+%global reltag 5.5.2-RELEASE
 
 Name:           libdispatch
-Version:        5.4.1
+Version:        5.5.2
 Release:        1%{?dist}
 Summary:        Apple's Grand Central Dispatch library
 License:        ASL 2.0 
@@ -83,6 +83,8 @@ chrpath --delete %{buildroot}%{_libdir}/libdispatch.so
 
 
 %changelog
+* Tue Dec 14 2021 Ron Olson <tachoknight@gmail.com> 5.5.2-1
+- Updated to 5.5.2-RELEASE
 * Fri Oct 29 2021 Ron Olson <tachoknight@gmail.com> 5.5.1-1
 - Updated to 5.5.1-RELEASE
 * Tue Jun 01 2021 Ron Olson <tachoknight@gmail.com> 5.4.1-1
