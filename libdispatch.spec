@@ -18,7 +18,7 @@ BuildRequires:  ninja-build
 BuildRequires:  cmake
 BuildRequires:  chrpath
 # For troubleshooting in a container
-BuildRequires:	vim
+BuildRequires:	nvim
 
 ExclusiveArch:  x86_64 aarch64 
 
