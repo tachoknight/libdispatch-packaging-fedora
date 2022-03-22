@@ -63,7 +63,7 @@ Development files for libdispatch
 %build
 export CXX=clang++
 export CC=clang
-%cmake -G Ninja .
+%cmake -G Ninja 
 %cmake_build
 
 
