@@ -1,8 +1,8 @@
 %global toolchain clang
-%global reltag 5.5.2-RELEASE
+%global reltag 5.6-RELEASE
 
 Name:           libdispatch
-Version:        5.5.2
+Version:        5.6.0
 Release:        1%{?dist}
 Summary:        Apple's Grand Central Dispatch library
 License:        ASL 2.0 
@@ -10,7 +10,6 @@ URL:            https://github.com/apple/swift-corelibs-libdispatch
 
 Source0:        https://github.com/apple/swift-corelibs-libdispatch/archive/swift-%{reltag}.tar.gz#/corelibs-libdispatch.tar.gz
 
-Patch0:		unusedvariable.patch
 
 BuildRequires:  clang
 BuildRequires:  libbsd-devel
@@ -58,7 +57,6 @@ Development files for libdispatch
 %prep
 %setup -q -n swift-corelibs-libdispatch-swift-%{reltag}
 
-%patch0 -p1
 
 %build
 export CXX=clang++
@@ -86,6 +84,8 @@ chrpath --delete %{buildroot}%{_libdir}/libdispatch.so
 
 
 %changelog
+* Tue Mar 22 2022 Ron Olson <tachoknight@gmail.com> 5.6.0-1
+- Updated to 5.6.0-RELEASE
 * Tue Dec 14 2021 Ron Olson <tachoknight@gmail.com> 5.5.2-1
 - Updated to 5.5.2-RELEASE
 * Fri Oct 29 2021 Ron Olson <tachoknight@gmail.com> 5.5.1-1
