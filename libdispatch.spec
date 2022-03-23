@@ -10,6 +10,7 @@ URL:            https://github.com/apple/swift-corelibs-libdispatch
 
 Source0:        https://github.com/apple/swift-corelibs-libdispatch/archive/swift-%{reltag}.tar.gz#/corelibs-libdispatch.tar.gz
 
+Patch0:		noerrors.patch
 
 BuildRequires:  clang
 BuildRequires:  libbsd-devel
@@ -57,6 +58,7 @@ Development files for libdispatch
 %prep
 %setup -q -n swift-corelibs-libdispatch-swift-%{reltag}
 
+%patch0 -p0
 
 %build
 export CXX=clang++
