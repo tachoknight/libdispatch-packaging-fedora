@@ -3,7 +3,7 @@
 
 Name:           libdispatch
 Version:        5.6.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Apple's Grand Central Dispatch library
 License:        ASL 2.0 
 URL:            https://github.com/apple/swift-corelibs-libdispatch
@@ -86,6 +86,8 @@ chrpath --delete %{buildroot}%{_libdir}/libdispatch.so
 
 
 %changelog
+* Wed Mar 23 2022 Ron Olson <tachoknight@gmail.com> 5.6.0-2
+- Added patch to allow for building on EPEL-8
 * Tue Mar 22 2022 Ron Olson <tachoknight@gmail.com> 5.6.0-1
 - Updated to 5.6.0-RELEASE
 * Tue Dec 14 2021 Ron Olson <tachoknight@gmail.com> 5.5.2-1
