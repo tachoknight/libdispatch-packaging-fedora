@@ -1,8 +1,8 @@
 %global toolchain clang
-%global reltag 5.6.1-RELEASE
+%global reltag 5.7.1-RELEASE
 
 Name:           libdispatch
-Version:        5.6.1
+Version:        5.7.1
 Release:        1%{?dist}
 Summary:        Apple's Grand Central Dispatch library
 License:        ASL 2.0 
@@ -18,7 +18,7 @@ BuildRequires:  ninja-build
 BuildRequires:  cmake
 BuildRequires:  chrpath
 
-ExclusiveArch:  x86_64 aarch64 
+ExclusiveArch:  x86_64 aarch64 ppc64le
 
 Provides:       libblocksruntime = %{version}-%{release}
 Obsoletes:      libblocksruntime < 7.0.0-5
@@ -86,6 +86,14 @@ chrpath --delete %{buildroot}%{_libdir}/libdispatch.so
 
 
 %changelog
+* Mon Dec 05 2022 Ron Olson <tachoknight@gmail.com> 5.7.1-1
+- Updated to 5.7.1-RELEASE
+* Thu Jul 21 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1:5.6.1-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
+
+* Thu May 12 2022 Ron Olson <tachoknight@gmail.com> 5.6.1-2
+- Merged patch 0a56660 from Shawn Anastasio to include
+  ppc64le as one of the architectures to build for
 * Fri Apr 15 2022 Ron Olson <tachoknight@gmail.com> 5.6.1-1
 - Updated to 5.6.1-RELEASE
 * Wed Mar 23 2022 Ron Olson <tachoknight@gmail.com> 5.6.0-2
