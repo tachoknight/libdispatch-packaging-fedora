@@ -1,8 +1,8 @@
 %global toolchain clang
-%global reltag 5.9-RELEASE
+%global reltag 5.10.1-RELEASE
 
 Name:           libdispatch
-Version:        5.9
+Version:        5.10
 Release:        1%{?dist}
 Summary:        Apple's Grand Central Dispatch library
 License:        Apache-2.0
@@ -87,6 +87,15 @@ chrpath --delete %{buildroot}%{_libdir}/libdispatch.so
 
 
 %changelog
+* Mon Jun 24 2024 Ron Olson <tachoknight@gmail.com> 5.10.1-1
+- Updated to 5.10.1-RELEASE
+
+* Thu Jan 25 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1:5.9-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_40_Mass_Rebuild
+
+* Sun Jan 21 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1:5.9-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_40_Mass_Rebuild
+
 * Thu Sep 28 2023 Ron Olson <tachoknight@gmail.com> 5.9-1
 - Updated to 5.9-RELEASE
 
