@@ -1,8 +1,8 @@
 %global toolchain clang
-%global reltag 5.10.1-RELEASE
+%global reltag 6.0-RELEASE
 
 Name:           libdispatch
-Version:        5.10
+Version:        6.0
 Release:        1%{?dist}
 Summary:        Apple's Grand Central Dispatch library
 License:        Apache-2.0
@@ -10,7 +10,6 @@ URL:            https://github.com/apple/swift-corelibs-libdispatch
 
 Source0:        https://github.com/apple/swift-corelibs-libdispatch/archive/swift-%{reltag}.tar.gz#/corelibs-libdispatch.tar.gz
 
-Patch0:		noerrors.patch
 
 BuildRequires:  clang
 BuildRequires:  libbsd-devel
@@ -58,8 +57,6 @@ Development files for libdispatch
 %prep
 %setup -q -n swift-corelibs-libdispatch-swift-%{reltag}
 
-%patch -P0 -p0
-
 
 %build
 export CXX=clang++
@@ -87,6 +84,12 @@ chrpath --delete %{buildroot}%{_libdir}/libdispatch.so
 
 
 %changelog
+* Tue Sep 17 2024 Ron Olson <tachoknight@gmail.com> 6.0-1
+- Updated to 6.0-1-RELEASE
+
+* Thu Jul 18 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1:5.10-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
+
 * Mon Jun 24 2024 Ron Olson <tachoknight@gmail.com> 5.10.1-1
 - Updated to 5.10.1-RELEASE
 
