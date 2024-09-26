@@ -1,8 +1,8 @@
 %global toolchain clang
-%global reltag 6.0-RELEASE
+%global reltag 6.0.1-RELEASE
 
 Name:           libdispatch
-Version:        6.0
+Version:        6.0.1
 Release:        1%{?dist}
 Summary:        Apple's Grand Central Dispatch library
 License:        Apache-2.0
@@ -84,6 +84,9 @@ chrpath --delete %{buildroot}%{_libdir}/libdispatch.so
 
 
 %changelog
+* Thu Sep 26 2024 Ron Olson <tachoknight@gmail.com> 6.0.1-1
+- Updated to 6.0.1-1-RELEASE
+
 * Tue Sep 17 2024 Ron Olson <tachoknight@gmail.com> 6.0-1
 - Updated to 6.0-1-RELEASE
 
