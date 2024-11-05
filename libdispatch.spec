@@ -61,6 +61,7 @@ Development files for libdispatch
 %build
 export CXX=clang++
 export CC=clang
+export CFLAGS="-Wno-error=cast-function-type `echo $CFLAGS`"
 %cmake -G Ninja 
 %cmake_build
 
